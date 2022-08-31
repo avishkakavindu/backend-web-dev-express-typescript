@@ -1,5 +1,6 @@
 import http, { Server, IncomingMessage, ServerResponse } from 'http';
 import { StringUtil } from './util/StringUtil';
+import { MathUtil } from './util/MathUtil';
 
 const HOSTNAME: string = '127.0.0.1';
 const PORT: number = 3000;
@@ -15,8 +16,9 @@ const server: Server = http.createServer(
 
 		let result: string = StringUtil.printTriangle(customerName);
 
+		let table = MathUtil.printMathTable(5);
 		response.end(
-			`<h3>Welcome to Node JS server</h3><p>Length: ${len}</p><pre>${result}</pre>`
+			`<h3>Welcome to Node JS server</h3><p>Length: ${len}</p><pre>${result}</pre><pre>${table}</pre>`
 		);
 	}
 );
